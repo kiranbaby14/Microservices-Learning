@@ -14,19 +14,23 @@ spec:
     spec:
       containers:
         - name: auth
-          image: kiranbaby14/auth
-
-
+          image: rallycoding/auth
+          env:
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: auth-srv
-spec: 
+spec:
   selector:
     app: auth
   ports:
-    - name: auth 
+    - name: auth
       protocol: TCP
       port: 3000
       targetPort: 3000
