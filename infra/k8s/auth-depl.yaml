@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: rallycoding/auth
+          image: kiranbaby14/auth
           env:
             - name: JWT_KEY
               valueFrom:
